@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Stage 1') {
+            steps {
+                echo 'Compile Jav prog..'
+ 	bat 'javac JenkinsHello.java'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Execute ......'
+	bat 'java -cp .  JenkinsHello'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Check console log..'
+            }
+        }
+    }
+}
